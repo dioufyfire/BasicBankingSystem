@@ -12,9 +12,9 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
+                    <th scope="col">Nom</th>
                     <th scope="col">Email Id</th>
-                    <th scope="col">Current Balance</th>
+                    <th scope="col">Solde Actuel</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,26 +28,26 @@
             </tbody>
         </table>
     </div>
-    <h3 class="text-center mb-3 mt-4">Proceed Transaction</h3>
+    <h3 class="text-center mb-3 mt-4">Faire une Transaction</h3>
     <form action="/add_transfer/{{user.id}}" method="POST">
         {% csrf_token %}
         <div class="form-group">
-            <label for="Select1">Sender</label>
+            <label for="Select1">Qui envoie ?</label>
             <select class="form-control" id="Select1" name="sender" required>
         <option selected>{{user.full_name}}</option>
       </select>
         </div>
         <div class="form-group">
-            <label for="Select2">Select Recipient</label>
+            <label for="Select2">Qui recoie ?</label>
             <select class="form-control" id="Select2" name="receiver" required>
-        <option selected value="">Choose...</option>
+        <option selected value="">Choisir</option>
         {% for r in receiver %}
         <option>{{r.full_name}}</option>
         {% endfor %}
       </select>
         </div>
         <div class="form-group">
-            <label for="amount">Enter amount</label>
+            <label for="amount">Entrer le montant</label>
             <input type="number" class="form-control" id="amount" placeholder="Enter amount" name="amount" required/>
         </div>
         <div class="text-center">
