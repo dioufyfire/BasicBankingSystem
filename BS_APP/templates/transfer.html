@@ -56,5 +56,31 @@
       </button>
         </div>
     </form>
+    <h3 class="text-center mb-3 mt-4">Faire un depot</h3>
+    <form action="/add_amount/{{user.id}}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="Select1">Qui envoie ?</label>
+            <select class="form-control" id="Select1" name="sender_depot" required>
+                <option selected>{{user.full_name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Select2">Qui recoie ?</label>
+            <select class="form-control" id="Select1" name="receiver_depot" required>
+                <option selected>{{user.full_name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="amount">Entrer le montant</label>
+            <input type="number" class="form-control" id="amount" placeholder="Enter amount" name="amount_depot" required/>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn button my-2 btn-sm btn-dark view-user">
+        CREDITER
+      </button>
+        </div>
+    </form>
+    <h3 class="text-center mb-3 mt-4">Faire un retrait</h3>
 </div>
 {% endblock %}
