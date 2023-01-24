@@ -60,13 +60,6 @@
     <form action="/add_amount/{{user.id}}" method="POST">
         {% csrf_token %}
         <div class="form-group">
-            <label for="Select1">Qui envoie ?</label>
-            <select class="form-control" id="Select1" name="sender_depot" required>
-                <option selected>{{user.full_name}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="Select2">Qui recoie ?</label>
             <select class="form-control" id="Select2" name="receiver_depot" required>
                 <option selected>{{user.full_name}}</option>
             </select>
