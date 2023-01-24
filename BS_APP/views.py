@@ -109,7 +109,7 @@ def del_amount(request, pk):
         
             status = 'Successful'
 
-            receiver_instance.current_balance += int(amount_retrait)
+            receiver_instance.current_balance -= int(amount_retrait)
 
             receiver_instance.save()
 
@@ -120,6 +120,6 @@ def del_amount(request, pk):
             Transaction.objects.create(sender=receiver_instance,recipient=receiver_instance,amount=receiver_instance,status=status)
             user = User.objects.get(pk=pk)
             receiver = User.objects.all()
-            return render(request,'transfer.html',{"warning": "Transaction failed because of insufficient balance :(", "receiver":receiver, "user": user})
+            return render(request,'transfer.html',{"warning": "Transaction failed because of insufficient balance :(", "receiver":receiver_retrait, "user": user})
 
 
