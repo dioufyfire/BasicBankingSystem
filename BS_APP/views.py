@@ -65,7 +65,6 @@ def add_amount(request, pk):
 
     if request.method == 'POST':
 
-        sender_depot = request.POST.get('sender_depot',None)
         receiver_depot = request.POST.get('receiver_depot',None)
         amount_depot = request.POST.get('amount_depot',None)
 
@@ -74,7 +73,7 @@ def add_amount(request, pk):
             receiver = User.objects.all()
             return render(request,'transfer.html',{"warning": "Oops! Entered amount is not valid", "receiver":receiver_depot, "user": user})
 
-        sender_instance = User.objects.get(full_name=sender_depot)
+
 
         receiver_instance = User.objects.get(full_name=receiver_depot)
         
@@ -84,11 +83,8 @@ def add_amount(request, pk):
 
         receiver_instance.save()
 
-        sender_instance.current_balance += int(0)
 
-        sender_instance.save()
-
-        Transaction.objects.create(sender=sender_instance,recipient=receiver_instance,amount=amount_depot,status=status)
+        Transaction.objects.create(sender=receiver_instance,recipient=receiver_instance,amount=amount_depot,status=status)
         return redirect(history)
            
 
