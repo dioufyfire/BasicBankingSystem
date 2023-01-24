@@ -63,7 +63,7 @@ def add_transfer(request, pk):
 
 def add_amount(request, pk):
 
-     if request.method == 'POST':
+    if request.method == 'POST':
 
         sender_depot = request.POST.get('sender_depot',None)
         receiver_depot = request.POST.get('receiver_depot',None)
