@@ -84,7 +84,7 @@ def add_amount(request, pk):
 
         receiver_instance.save()
 
-        sender_instance.current_balance -= 0
+        sender_instance.current_balance += int(0)
 
         sender_instance.save()
 
