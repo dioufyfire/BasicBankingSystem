@@ -224,6 +224,11 @@ a {
     .form-control {
         font-size: 14px !important;
     }
+    .form-group-hide {
+        font-size: 14px !important;
+        display: none;
+        visibility: hidden;
+    }
     .navbar-brand {
         font-size: 20px !important;
     }
