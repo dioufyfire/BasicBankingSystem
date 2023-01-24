@@ -7,5 +7,6 @@ urlpatterns = [
     path('transfer/<int:pk>',transfer),
     path('add_transfer/<int:pk>',add_transfer),
     path('add_amount/<int:pk>',add_amount),
+    path('del_amount/<int:pk>',del_amount),
     path('history/',history)
 ]
