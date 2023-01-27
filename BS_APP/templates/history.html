@@ -19,11 +19,7 @@
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{ t.sender }}</td>
                 <td>{{ t.recipient }}</td>
-                {% if t.status == "Successful" %}
-                <td>{{ t.amount }}</td>
-                {% else %}
-                <td>- {{ t.amount }}</td>
-                {% endif %}
+                <td><i class="fas fa-money-bill-wave rupee"></i> {{ t.amount }}</td>
                 <td>{{ t.created_at }}</td>
                 {% if t.status == "Successful" %}
                 <td style="color: green">{{ t.status }}</td>

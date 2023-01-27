@@ -113,6 +113,8 @@ def del_amount(request, pk):
 
             receiver_instance.save()
 
+            amount_retrait = -amount_retrait
+
             Transaction.objects.create(sender=receiver_instance,recipient=receiver_instance,amount=amount_retrait,status=status)
             return redirect(history)
         else:
