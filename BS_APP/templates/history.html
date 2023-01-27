@@ -19,7 +19,7 @@
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{ t.sender }}</td>
                 <td>{{ t.recipient }}</td>
-                {% if t.status == "Successful+" %}
+                {% if t.status == "Successful+" or t.status == "Successful" %}
                 <td>{{ t.amount }}</td>
                 {% else %}
                 <td>- {{ t.amount }}</td>
