@@ -42,7 +42,7 @@ def add_transfer(request, pk):
          receiver_instance = User.objects.get(full_name=receiver)
         
          if curr_balance > int(amount):
-             status = 'Successful'
+             status = 'Successful+'
 
              receiver_instance.current_balance += int(amount)
 
@@ -77,7 +77,7 @@ def add_amount(request, pk):
 
         receiver_instance = User.objects.get(full_name=receiver_depot)
         
-        status = 'Successful'
+        status = 'Successful+'
 
         receiver_instance.current_balance += int(amount_depot)
 
@@ -107,13 +107,13 @@ def del_amount(request, pk):
 
         if curr_balance > int(amount_retrait):
         
-            status = 'Successful'
+            status = 'Successful-'
 
             receiver_instance.current_balance -= int(amount_retrait)
 
             receiver_instance.save()
 
-            amount_retrait = -amount_retrait
+            amount_retrait = amount_retrait
 
             Transaction.objects.create(sender=receiver_instance,recipient=receiver_instance,amount=amount_retrait,status=status)
             return redirect(history)
